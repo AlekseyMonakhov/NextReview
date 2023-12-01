@@ -18,7 +18,9 @@ export async function generateMetadata({ params: { slug } }) {
 }
 
 export default async function ReviewPage({ params: { slug } }) {
-    const { content, date, image, title, html } = await getReview(slug);
+    const { body, date, image, title, html } = await getReview(slug);
+
+
 
     return (
         <>
@@ -37,7 +39,7 @@ export default async function ReviewPage({ params: { slug } }) {
             <article
                 className={"prose prose-slate max-w-screen-sm"}
                 dangerouslySetInnerHTML={{
-                    __html: content,
+                    __html: body,
                 }}
             />
         </>
